@@ -265,10 +265,11 @@
 \renewcommand\maketitle[1]{%
   \cleardoublepage
   \thispagestyle{empty}
+  \pdfbookmark{标题}{title}
   \begin{center}
   {\songti\zihao{-3}\sjtu@label@statement}
   \vskip\stretch{1}
-  {\heiti\zihao{3}\sjtu@value@title}
+  {\heiti\Large\sjtu@value@title}
   \vskip\stretch{1}
   {\fangsong\zihao{4}}
   \def\tabcolsep{1pt}
@@ -312,10 +313,11 @@
 \newcommand\makeenglishtitle[1]{%
   \cleardoublepage
   \thispagestyle{empty}
+  \pdfbookmark{TITLE}{englishtitle}
   \begin{center}
       {\normalfont\zihao{4} \sjtu@label@englishstatement} 
       \vspace{20pt} \vskip\stretch{1}
-      {\huge\sjtu@value@englishtitle} 
+      {\Large\sjtu@value@englishtitle} 
       \vskip \stretch{1}
     \ifsjtu@review
       \vskip \stretch{1}
@@ -345,9 +347,10 @@
 \newcommand\makeDeclareOriginal{%
   \cleardoublepage
   \thispagestyle{empty}
+  \pdfbookmark{原创性声明}{DeclareOriginal}
   \begin{center}
-  	{\bf\zihao{3} \sjtu@value@school}\\
-  	{\bf\zihao{3} \sjtu@label@original}
+    {\bf\Large \sjtu@value@school}\\
+    {\bf\Large \sjtu@label@original}
   \end{center}
   \vskip 10pt
   {\par\zihao{-4}\sjtu@label@originalcontent\par}
@@ -363,9 +366,10 @@
 \newcommand\makeDeclareAuthorization{%
   \cleardoublepage
   \thispagestyle{empty}
+  \pdfbookmark{授权声明}{DeclareAuthorization}
   \begin{center}
-  	{\bf\zihao{3} \sjtu@value@school}\\
-  	{\bf\zihao{3} \sjtu@label@authorization}
+    {\bf\Large \sjtu@value@school}\\
+    {\bf\Large \sjtu@label@authorization}
   \end{center}
   \vskip 10pt
   {\par\zihao{-4}\sjtu@label@authorizationcontent\par}
@@ -435,13 +439,13 @@
 \fi
 
 % 中英文摘要
-\newenvironment{abstract}{\chapter*{\sjtu@value@title\vskip 20pt\sjtu@label@abstract}\markboth{\sjtu@label@abstract}{}}{}
-\newcommand\keywords[1]{\vspace{2ex}\noindent{\bf\large \sjtu@label@keywords} #1}
-\newenvironment{englishabstract}{\chapter*{\sjtu@value@englishtitle\vskip 20pt\bfseries \sjtu@label@englishabstract}\markboth{\sjtu@label@englishabstract}{}}{}
-\newcommand\englishkeywords[1]{\vspace{2ex}\noindent{\bf\large \sjtu@label@englishkeywords} #1}
+\newenvironment{abstract}{\chapter*{\pdfbookmark{摘要}{abstract}\sjtu@value@title\vskip 20pt\sjtu@label@abstract}\markboth{\sjtu@label@abstract}{}\zihao{4}}{}
+\newcommand\keywords[1]{\vspace{2ex}\noindent{\bf\zihao{4} \sjtu@label@keywords} #1}
+\newenvironment{englishabstract}{\chapter*{\pdfbookmark{ABSTRACT}{englishabstract}\sjtu@value@englishtitle\vskip 20pt\bfseries \sjtu@label@englishabstract}\markboth{\sjtu@label@englishabstract}{}\zihao{4}}{}
+\newcommand\englishkeywords[1]{\vspace{2ex}\noindent{\bf\zihao{4} \sjtu@label@englishkeywords} #1}
 
 \renewcommand\tableofcontents{%
-  \chapter*{\contentsname}
+  \chapter*{\pdfbookmark{目录}{contents}\contentsname}
   \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
   \@starttoc{toc}%
 }
